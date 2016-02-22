@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Parse.setApplicationId("2nPf9qISm7XkUvXOAMDFplqEc78fiSrLcuG8wD0d",
+            clientKey: "jDCeqshyHEcZjtiTBIJjdgCLXSBd5rEq2xhbsIjX")
+        
+        if PFUser.currentUser() != nil {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("photoView")
+            window?.rootViewController = viewController
+        }
         // Override point for customization after application launch.
         return true
     }
