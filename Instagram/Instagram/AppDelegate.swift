@@ -23,8 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("photoView")
             window?.rootViewController = viewController
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout:", name: "logout", object: nil)
+        
         // Override point for customization after application launch.
         return true
+    }
+    
+    func userDidLogout(notification: NSNotification) {
+        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
     }
 
     func applicationWillResignActive(application: UIApplication) {

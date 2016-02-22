@@ -74,6 +74,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
 
+    @IBAction func cancelTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
